@@ -50,8 +50,16 @@ matrix:
           packages:
           - libxkbcommon-x11-0
 
-    ### PyQt 5.13 (Python 3.8, with coverage)
-    - env: TESTENV=py38-pyqt513-cov
+    ### PyQt 5.13 (Python 3.8)
+    - env: TESTENV=py38-pyqt513
+      # http://code.qt.io/cgit/qt/qtbase.git/commit/?id=c3a963da1f9e7b1d37e63eedded61da4fbdaaf9a
+      addons:
+        apt:
+          packages:
+          - libxkbcommon-x11-0
+
+    ### PyQt 5.14 (Python 3.8, with coverage)
+    - env: TESTENV=py38-pyqt514-cov
       # http://code.qt.io/cgit/qt/qtbase.git/commit/?id=c3a963da1f9e7b1d37e63eedded61da4fbdaaf9a
       addons:
         apt:
@@ -60,14 +68,14 @@ matrix:
 
     ### macOS Mojave (10.14)
     - os: osx
-      env: TESTENV=py37-pyqt513 OSX=mojave
+      env: TESTENV=py37-pyqt514 OSX=mojave
       osx_image: xcode11.2
       language: generic
       python: 3.7
 
     ### macOS High Sierra (10.13)
     - os: osx
-      env: TESTENV=py37-pyqt513 OSX=highsierra
+      env: TESTENV=py37-pyqt514 OSX=highsierra
       osx_image: xcode10.1
       language: generic
       python: 3.7
